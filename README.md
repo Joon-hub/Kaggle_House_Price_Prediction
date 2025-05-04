@@ -1,10 +1,5 @@
 # House Price Prediction - Kaggle Competition
 
-![House Price](https://img.shields.io/badge/Machine%20Learning-Regression-blue)
-![Python](https://img.shields.io/badge/Python-3.7%2B-brightgreen)
-![Framework](https://img.shields.io/badge/Framework-Scikit--learn-orange)
-
-## Overview
 
 This repository contains my solution for the [Kaggle House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) competition. The challenge is to predict the final sale price of residential homes in Ames, Iowa, using 79 explanatory variables that describe various aspects of the properties.
 
