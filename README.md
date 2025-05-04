@@ -1,81 +1,115 @@
-# Kaggle House Price Prediction
+# House Price Prediction - Kaggle Competition
 
-Welcome to the House Price Prediction project! This repository showcases a complete data science pipeline for predicting house prices using the popular Kaggle dataset. The project is designed to demonstrate best practices in data preprocessing, feature engineering, model training, and evaluation, making it a valuable reference for MSc Data Science students and practitioners.
+![House Price](https://img.shields.io/badge/Machine%20Learning-Regression-blue)
+![Python](https://img.shields.io/badge/Python-3.7%2B-brightgreen)
+![Framework](https://img.shields.io/badge/Framework-Scikit--learn-orange)
 
-## Project Overview
+## Overview
 
-This project aims to accurately predict house sale prices using various features from the Ames Housing dataset. The workflow includes:
-
-- Data cleaning and preprocessing
-- Exploratory data analysis (EDA)
-- Feature engineering
-- Model selection and training (CatBoost)
-- Generating predictions for Kaggle submission
-
-The approach is modular, reproducible, and suitable for both academic and practical applications.
-
----
-
-## Dataset
-
-- **Source:** [Kaggle House Prices - Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
-- **Files:**
-  - `train.csv`: Training data with features and target variable
-  - `test.csv`: Test data for prediction
-  - `data_description.txt`: Detailed feature descriptions
-  - `sample_submission.csv`: Sample submission format
-
----
+This repository contains my solution for the [Kaggle House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) competition. The challenge is to predict the final sale price of residential homes in Ames, Iowa, using 79 explanatory variables that describe various aspects of the properties.
 
 ## Project Structure
 
 ```
-├── house-price-prediction-project-1.ipynb   # Main analysis notebook
-├── kaggle_preprocessing.py                  # Data preprocessing scripts
-├── kaggle_modeling.py                       # Model training and prediction scripts
-├── result.csv                               # Model predictions for submission
-├── test.py                                  # Test script
-├── train.csv, test.csv                      # Dataset files
-├── data_description.txt                     # Feature descriptions
-└── sample_submission.csv                    # Kaggle submission template
+├── data/                    # Data files
+│   ├── train.csv            # Training data
+│   ├── test.csv             # Test data
+│   └── sample_submission.csv # Sample submission format
+├── notebooks/               # Jupyter notebooks
+│   ├── EDA.ipynb            # Exploratory Data Analysis
+│   ├── feature_engineering.ipynb # Feature engineering process
+│   └── model_training.ipynb # Model training and evaluation
+├── src/                     # Source code
+│   ├── preprocessing.py     # Data preprocessing functions
+│   ├── features.py          # Feature engineering code
+│   ├── models.py            # Model implementations
+│   └── utils.py             # Utility functions
+├── House_price_prediciton.ipynb # Main notebook with complete pipeline
+├── requirements.txt         # Package dependencies
+└── README.md                # Project documentation
 ```
 
----
+## Problem Statement
 
-## Requirements
+The goal is to predict the sale price of homes based on various features like overall quality, neighborhood, year built, square footage, etc. This is a regression problem where we aim to minimize the Root-Mean-Squared-Error (RMSE) between the logarithm of the predicted value and the logarithm of the observed sales price.
 
-- Python 3.7+
-- Jupyter Notebook
-- pandas, numpy, scikit-learn
-- catboost
+## My Approach
 
-Install dependencies with:
-```bash
-pip install -r requirements.txt
-```
-*(Create a `requirements.txt` as needed)*
+### 1. Exploratory Data Analysis (EDA)
+- Analyzed the relationships between various features and the target variable (SalePrice)
+- Investigated data distributions and identified outliers
+- Explored correlations between features
+- Visualized key insights through plots and charts
 
----
+### 2. Data Preprocessing
+- Handled missing values using appropriate strategies (imputation, dropping, etc.)
+- Addressed outliers to improve model robustness
+- Encoded categorical variables 
+- Applied log transformation to the target variable to normalize its distribution
 
-## Usage
+### 3. Feature Engineering
+- Created new meaningful features from existing ones
+- Selected important features based on correlation and importance scores
+- Applied feature scaling to ensure model stability
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Joon-hub/Kaggle_House_Price_Prediction.git
-   cd Kaggle_House_Price_Prediction
-   ```
+### 4. Model Selection and Training
+I experimented with several regression models:
+- Linear Regression
+- Ridge Regression
+- Lasso Regression
+- Elastic Net
+- Random Forest Regressor
+- Gradient Boosting (XGBoost, LightGBM)
+- Stacked models (ensemble approach)
 
-2. **Run the notebook:**
-   Open `house-price-prediction-project-1.ipynb` in Jupyter Notebook and follow the workflow.
+### 5. Hyperparameter Tuning
+- Used cross-validation to find optimal hyperparameters
+- Applied grid search and random search techniques
 
-3. **Command-line usage:**
-   Use `kaggle_preprocessing.py` and `kaggle_modeling.py` to preprocess data and train models.
+### 6. Model Evaluation
+- Evaluated models using Root Mean Squared Log Error (RMSLE)
+- Used K-fold cross-validation to ensure robustness
+- Analyzed feature importance to gain deeper insights
 
-4. **Generate predictions:**
-   The final predictions are saved in `result.csv` for submission to Kaggle.
-
----
+### 7. Making Predictions
+- Generated predictions on the test set
+- Prepared submission files in the required format
 
 ## Results
 
-- The CatBoost model achieved competitive performance on the Kaggle leaderboard.
+My best performing model achieved a score of [YOUR_SCORE] on the private leaderboard, which placed me in the top [YOUR_PERCENTILE] of participants. The final solution was an ensemble of [YOUR_MODEL_COMBINATION], which proved effective at capturing both linear and non-linear relationships in the data.
+
+## Key Insights
+
+- The most important features for house price prediction were [TOP_FEATURES]
+- [YOUR_OTHER_IMPORTANT_FINDINGS]
+- [INTERESTING_OBSERVATION_ABOUT_THE_DATA]
+
+## Installation and Usage
+
+1. Clone this repository:
+```
+git clone https://github.com/Joon-hub/Kaggle_House_Price_Prediction.git
+cd Kaggle_House_Price_Prediction
+```
+
+2. Install the required packages:
+```
+pip install -r requirements.txt
+```
+
+3. Run the Jupyter notebooks to see the analysis and model training:
+```
+jupyter notebook
+```
+
+4. To reproduce my submission:
+```
+python src/predict.py
+```
+## Contact
+
+Feel free to reach out if you have any questions or suggestions!
+
+- GitHub: [@Joon-hub](https://github.com/Joon-hub)
+- Kaggle: [Your Kaggle Profile]
